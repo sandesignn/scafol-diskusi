@@ -45,7 +45,38 @@
                             <p class="fs-6 text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, dicta quidem placeat, quo atque aspernatur, numquam quae ipsum minus provident minima ex illum asperiores maiores?</p>
                             <a href="#"><small class="text-warning fw-bold">Balas</small></a>
                         </div>
-                        <div class="row">
+                        <div class="row mb-4">
+                            <div class="col-sm-1 foto-profile">
+                                <img src="<?= base_url() ?>/assets/img/foto-profiles/sandiwht.jpg" alt="" class="img-profile-replay-replay">
+                            </div>
+                            <div class="col-sm">
+                                <h6 class="fw-bold">Kurnia Sandi Pratama <span class="badge bg-warning fw-normal text-dark">- (27-Mei-2021)</span></h6>
+                                <p class="fs-8 text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, dicta quidem placeat, quo atque aspernatur, numquam quae ipsum minus provident minima ex illum asperiores maiores?</p>
+                                <a href="#"><small class="text-warning fw-bold">Balas</small></a>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-sm-1 foto-profile">
+                                <img src="<?= base_url() ?>/assets/img/foto-profiles/sandiwht.jpg" alt="" class="img-profile-replay-replay">
+                            </div>
+                            <div class="col-sm">
+                                <h6 class="fw-bold">Kurnia Sandi Pratama <span class="badge bg-warning fw-normal text-dark">- (27-Mei-2021)</span></h6>
+                                <p class="fs-8 text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, dicta quidem placeat, quo atque aspernatur, numquam quae ipsum minus provident minima ex illum asperiores maiores?</p>
+                                <a href="#"><small class="text-warning fw-bold">Balas</small></a>
+                                <a href="#"><small class="text-warning fw-bold">Ubah</small></a>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-sm-1 foto-profile">
+                                <img src="<?= base_url() ?>/assets/img/foto-profiles/sandiwht.jpg" alt="" class="img-profile-replay-replay">
+                            </div>
+                            <div class="col-sm">
+                                <h6 class="fw-bold">Kurnia Sandi Pratama <span class="badge bg-warning fw-normal text-dark">- (27-Mei-2021)</span></h6>
+                                <p class="fs-8 text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, dicta quidem placeat, quo atque aspernatur, numquam quae ipsum minus provident minima ex illum asperiores maiores?</p>
+                                <a href="#"><small class="text-warning fw-bold">Balas</small></a>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
                             <div class="col-sm-1 foto-profile">
                                 <img src="<?= base_url() ?>/assets/img/foto-profiles/sandiwht.jpg" alt="" class="img-profile-replay-replay">
                             </div>
