@@ -44,6 +44,36 @@ class Auth extends CI_Controller
 	{
 		$this->load->view('pages/register');
 	}
+
+	public function register_work()
+	{
+		$username = $this->input->post('username');
+		$nama = $this->input->post('nama');
+		$email = $this->input->post('email');
+		$pass = $this->input->post('password');
+
+		$cek_username = $this->db->get_where('user', ['username' => $username])->row_array();
+		if ($cek_username) {
+			$this->session->set_flashdata('message', '<small class="warning-text text-danger form_name">Username sudah digunakan</small><br>');
+		} else {
+			date_default_timezone_set("Asia/Bangkok");
+			$dateSubmit = date("Y/m/d H:i:sa");
+			$this->db->set('username', $username);
+			$this->db->set('nama', $nama);
+			$this->db->set('email', $email);
+			$this->db->set('password', $pass);
+			$this->db->set('created_at', $dateSubmit);
+			$this->db->insert('user');
+
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('message', 'Register Berhasil!');
+				redirect('auth/home');
+			} else {
+				echo "Gagal insert";
+			}
+		}
+	}
+
 	public function diskusi()
 	{
 		if (!$this->session->userdata('user')) { //jika user tidak login arahkan ke halaman login
@@ -54,8 +84,8 @@ class Auth extends CI_Controller
 			$sql = "SELECT user.*, diskusi.* from user INNER JOIN diskusi where diskusi.id_diskusi='$id_diskusi'";
 			$data['detail'] = $this->db->query($sql)->row_array();
 
-			$sql1 = "SELECT komentar.*, user.nama FROM komentar RIGHT join user on komentar.id_komentar WHERE id_diskusi='$id_diskusi' order by created_at desc ";
-			$data['komentar'] = $this->db->query($sql1)->result_array();
+			$sqlku = "SELECT * FROM `komentar` WHERE id_diskusi='$id_diskusi' order by created_at desc ";
+			$data['komentar'] = $this->db->query($sqlku)->result_array();
 
 			$sql2 = "SELECT * FROM `komentar` WHERE id_diskusi='$id_diskusi'";
 			$data['jkomentar'] = $this->db->query($sql2)->num_rows();
@@ -72,7 +102,7 @@ class Auth extends CI_Controller
 		} else {
 
 
-			$sql = "SELECT user.*, diskusi.* from user INNER JOIN diskusi on diskusi.id_diskusi";
+			$sql = "SELECT * FROM `diskusi` ORDER BY created_at DESC";
 			$data['diskusi'] = $this->db->query($sql)->result_array();
 
 			$this->load->view('template/header');
@@ -89,7 +119,7 @@ class Auth extends CI_Controller
 		$title = $this->input->post('title');
 		$deskripsi = $this->input->post('deskripsi');
 		$kategori = $this->input->post('kategori');
-		$user = $this->session->user;
+		$user = $this->session->userdata['user'];
 		$img = $_FILES['foto']['name'];
 		$file = $_FILES['file']['name'];
 		if ($img || $file) {
@@ -116,14 +146,15 @@ class Auth extends CI_Controller
 			$this->db->set('username', $user);
 			$this->db->set('created_at', $dateSubmit);
 			$this->db->insert('diskusi');
+		} else {
+			$this->db->set('title', $title);
+			$this->db->set('deskripsi', $deskripsi);
+			$this->db->set('kategori', $kategori);
+			$this->db->set('username', $user);
+			$this->db->set('created_at', $dateSubmit);
+			$this->db->insert('diskusi');
 		}
 
-		$this->db->set('title', $title);
-		$this->db->set('deskripsi', $deskripsi);
-		$this->db->set('kategori', $kategori);
-		$this->db->set('username', $user);
-		$this->db->set('created_at', $dateSubmit);
-		$this->db->insert('diskusi');
 
 
 		if ($this->db->affected_rows() > 0) {
@@ -140,7 +171,7 @@ class Auth extends CI_Controller
 		$dateSubmit = date("Y/m/d H:i:sa");
 		$komentar = $this->input->post('komentar');
 		$id_diskusi = $this->input->post('id_diskusi');
-		$user = $this->session->user;
+		$user = $this->session->userdata['user'];
 		$img = $_FILES['foto']['name'];
 		$file = $_FILES['file']['name'];
 		if ($img || $file) {
@@ -191,7 +222,7 @@ class Auth extends CI_Controller
 		$id_komentar = $this->input->post('id_komentar');
 		$komentar = $this->input->post('komentar');
 		$id_diskusi = $this->input->post('id_diskusi');
-		$user = $this->session->user;
+		$user = $this->session->userdata['user'];
 		$img = $_FILES['foto']['name'];
 		$file = $_FILES['file']['name'];
 		if ($img || $file) {

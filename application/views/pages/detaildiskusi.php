@@ -2,7 +2,7 @@
 <section class="mt-4 mb-5">
     <div class="row kotak-posting mb-2">
         <div class="col-sm-1 foto-profile">
-            <img src="<?= base_url() ?>/assets/img/foto-profiles/sandiwht.jpg" alt="" class="img-profile" width="80">
+            <img src="<?= base_url() ?>/assets/img/foto-profiles/man.png" alt="" class="img-profile" width="80">
         </div>
         <div class="col-sm">
             <div class="row mb-5">
@@ -35,11 +35,11 @@
             <?php foreach ($komentar as $kmt) : ?>
                 <div class="row">
                     <div class="col-sm-1">
-                        <img src="<?= base_url() ?>/assets/img/foto-profiles/sandiwht.jpg" alt="" class="img-profile-replay">
+                        <img src="<?= base_url() ?>/assets/img/foto-profiles/man.png" alt="" class="img-profile-replay">
                     </div>
                     <div class="col-sm">
                         <div class="row mb-4">
-                            <h6 class="fw-bold"><?= $kmt['nama'] ?><span class="badge bg-warning fw-normal text-dark">- (<?= $kmt['created_at'] ?>)</span></h6>
+                            <h6 class="fw-bold"><?= $kmt['username'] ?><span class="badge bg-warning fw-normal text-dark">- (<?= $kmt['created_at'] ?>)</span></h6>
                             <p class="fs-6 text-secondary"><?= $kmt['komentar_user'] ?></p>
                             <?php
 
@@ -96,19 +96,18 @@
                                 </div>
                             </div>
                         </div>
+
                         <!-- 
-                        <?php foreach ($balasan as $blsn) : ?>
-                            <div class="row mb-4">
-                                <div class="col-sm-1 foto-profile">
-                                    <img src="<?= base_url() ?>/assets/img/foto-profiles/sandiwht.jpg" alt="" class="img-profile-replay-replay">
-                                </div>
-                                <div class="col-sm">
-                                    <h6 class="fw-bold"><?= $blsn['nama'] ?><span class="badge bg-warning fw-normal text-dark">- (27-Mei-2021)</span></h6>
-                                    <p class="fs-8 text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, dicta quidem placeat, quo atque aspernatur, numquam quae ipsum minus provident minima ex illum asperiores maiores?</p>
-                                    <a href="#"><small class="text-warning fw-bold">Balas</small></a>
-                                </div>
+                        <div class="row mb-4">
+                            <div class="col-sm-1 foto-profile">
+                                <img src="<?= base_url() ?>/assets/img/foto-profiles/sandiwht.jpg" alt="" class="img-profile-replay-replay">
                             </div>
-                        <?php endforeach ?> -->
+                            <div class="col-sm">
+                                <h6 class="fw-bold">Kurnia Sandi Pratama<span class="badge bg-warning fw-normal text-dark">- (27-Mei-2021)</span></h6>
+                                <p class="fs-8 text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, dicta quidem placeat, quo atque aspernatur, numquam quae ipsum minus provident minima ex illum asperiores maiores?</p>
+                                <a href="#"><small class="text-warning fw-bold">Balas</small></a>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             <?php endforeach ?>

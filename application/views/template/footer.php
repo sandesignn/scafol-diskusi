@@ -28,6 +28,7 @@
     }
 </script>
 
+
 <!-- Show Form Img Dropzoone -->
 <script>
     $('#addimg').click(function() {
