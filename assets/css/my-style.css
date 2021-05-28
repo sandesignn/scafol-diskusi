@@ -8,6 +8,13 @@
 html {
 	font-family: "Raleway", sans-serif;
 }
+.icon-left {
+	float: left;
+}
+.icon-right {
+	float: right;
+}
+
 .sisi-atas {
 	padding: 40px 0 40px 0;
 }
